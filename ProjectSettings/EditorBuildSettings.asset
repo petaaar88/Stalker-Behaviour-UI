@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MultipleStalkersScene.unity
+    guid: 015f3561086c7d94ba0c5692d9f85119
+  - enabled: 1
+    path: Assets/Scenes/Ispit/WinScene.unity
+    guid: 29b4c2a8281e3824e82bdf1266439c92
+  - enabled: 1
+    path: Assets/Scenes/Ispit/YouDied.unity
+    guid: 45a9d5398cf3b95429a33725f9845427
+  m_configObjects: {}
