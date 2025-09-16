@@ -111709,9 +111709,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4950367138099655150, guid: 860e60de9587df3498805c67c1457142, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4979886713820977284, guid: 860e60de9587df3498805c67c1457142, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259404171870227256, guid: 860e60de9587df3498805c67c1457142, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6624009275342135123, guid: 860e60de9587df3498805c67c1457142, type: 3}
       propertyPath: m_Enabled
@@ -111725,6 +111733,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 139299860}
+    - target: {fileID: 8016482728585258588, guid: 860e60de9587df3498805c67c1457142, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8626318727583456965, guid: 860e60de9587df3498805c67c1457142, type: 3}
       propertyPath: m_IsActive
       value: 0
