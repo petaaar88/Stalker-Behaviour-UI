@@ -294,7 +294,10 @@ public class Stalker : MonoBehaviour
         if (other.CompareTag("Weapon"))
         {
             if(!this.isEngagingToPlayer && stateMachine.GetCurrentState() != stateMachine.recoveringState)
+            {
                 this.StartEngageToPlayer();
+                animator.ResetTrigger("ExitCover");
+            }
             
             health.TakeDamage(10);
 
