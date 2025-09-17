@@ -45,8 +45,12 @@ public class GenericButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Tween colorTween;
     private Tween scaleTween;
 
+    private ObjectAudioManager audioManager;
+
     private void Start()
     {
+        audioManager = GetComponent<ObjectAudioManager>();
+
         if (tmp != null)
             tmp.color = normalColor;
         transform.localScale = normalScale;
@@ -55,6 +59,8 @@ public class GenericButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log($"Mouse entered {gameObject.name}");
+
+        audioManager?.PlaySound("Hover");
 
         if (tmp != null)
         {
@@ -91,7 +97,7 @@ public class GenericButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log($"Button {gameObject.name} clicked!");
-
+        audioManager?.PlaySound("Click");
         onButtonClick?.Invoke();
 
         if (tmp != null)
