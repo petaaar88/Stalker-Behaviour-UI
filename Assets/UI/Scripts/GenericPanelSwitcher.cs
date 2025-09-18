@@ -65,17 +65,21 @@ public class GenericPanelSwitcher : MonoBehaviour
         float fadeOutDuration = currentPanelSettings.fadeOutDuration;
         float fadeInDuration = targetPanelSettings.fadeInDuration;
 
-        currentPanel.DOFade(0, fadeOutDuration).OnComplete(() =>
-        {
-            currentPanel.gameObject.SetActive(false);
-            targetPanel.gameObject.SetActive(true);
-            targetPanel.alpha = 0;
-            targetPanel.DOFade(1, fadeInDuration).OnComplete(() =>
+        currentPanel.DOFade(0, fadeOutDuration)
+            .SetUpdate(true) // Dodato - radi i tokom pauze
+            .OnComplete(() =>
             {
-                currentPanelIndex = panelIndex;
-                onPanelSwitchComplete?.Invoke();
+                currentPanel.gameObject.SetActive(false);
+                targetPanel.gameObject.SetActive(true);
+                targetPanel.alpha = 0;
+                targetPanel.DOFade(1, fadeInDuration)
+                    .SetUpdate(true) // Dodato - radi i tokom pauze
+                    .OnComplete(() =>
+                    {
+                        currentPanelIndex = panelIndex;
+                        onPanelSwitchComplete?.Invoke();
+                    });
             });
-        });
     }
 
     public void SwitchToNextPanel()

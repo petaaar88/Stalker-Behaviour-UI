@@ -65,13 +65,17 @@ public class GenericButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (tmp != null)
         {
             colorTween?.Kill();
-            colorTween = tmp.DOColor(hoverColor, animationDuration).SetEase(animationEase);
+            colorTween = tmp.DOColor(hoverColor, animationDuration)
+                .SetEase(animationEase)
+                .SetUpdate(true); // Dodato - radi i tokom pauze
         }
 
         if (animateScale)
         {
             scaleTween?.Kill();
-            scaleTween = transform.DOScale(hoverScale, animationDuration).SetEase(animationEase);
+            scaleTween = transform.DOScale(hoverScale, animationDuration)
+                .SetEase(animationEase)
+                .SetUpdate(true); // Dodato - radi i tokom pauze
         }
 
         onButtonHover?.Invoke();
@@ -82,13 +86,17 @@ public class GenericButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (tmp != null)
         {
             colorTween?.Kill();
-            colorTween = tmp.DOColor(normalColor, animationDuration).SetEase(animationEase);
+            colorTween = tmp.DOColor(normalColor, animationDuration)
+                .SetEase(animationEase)
+                .SetUpdate(true); // Dodato - radi i tokom pauze
         }
 
         if (animateScale)
         {
             scaleTween?.Kill();
-            scaleTween = transform.DOScale(normalScale, animationDuration).SetEase(animationEase);
+            scaleTween = transform.DOScale(normalScale, animationDuration)
+                .SetEase(animationEase)
+                .SetUpdate(true); // Dodato - radi i tokom pauze
         }
 
         onButtonExit?.Invoke();
@@ -103,7 +111,9 @@ public class GenericButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (tmp != null)
         {
             colorTween?.Kill();
-            colorTween = tmp.DOColor(normalColor, animationDuration).SetEase(animationEase);
+            colorTween = tmp.DOColor(normalColor, animationDuration)
+                .SetEase(animationEase)
+                .SetUpdate(true); // Dodato - radi i tokom pauze
         }
     }
 

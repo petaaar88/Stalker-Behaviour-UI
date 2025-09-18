@@ -9,6 +9,7 @@ TagManager:
   - Pickup Bottle
   - StalkerAttackLeft
   - StalkerAttackRight
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
