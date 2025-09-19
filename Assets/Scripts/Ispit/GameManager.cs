@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,8 +17,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private string youDiedSceneName = "YouDied";
 
+    [Header("Health")]
     [SerializeField]
-    private Text healthText;
+    private TextMeshProUGUI healthText;
+    [SerializeField]
+    private Image healthBarFill;
+
     [SerializeField]
     private Text bottles;
     [SerializeField]
@@ -49,7 +54,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(playerHealth != null)
-            healthText.text = "Health: " + playerHealth.GetHealth().ToString();
+        {
+            healthText.text = playerHealth.GetHealth().ToString();
+            healthBarFill.fillAmount = (float)playerHealth.GetHealth() / playerHealth.GetMaxHealth();
+        }
 
         bottles.text = "Bottles: " + (throwingObject != null ? (throwingObject.HasInfiniteProjectiles() ? "∞" : throwingObject.GetNumberOfProjectiles().ToString()) : "0");
 
