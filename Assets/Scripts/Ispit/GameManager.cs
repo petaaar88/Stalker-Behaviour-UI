@@ -24,9 +24,16 @@ public class GameManager : MonoBehaviour
     private Image healthBarFill;
 
     [SerializeField]
-    private Text bottles;
+    private TextMeshProUGUI bottles;
     [SerializeField]
-    private Text objective;
+    private TextMeshProUGUI objective;
+
+    [SerializeField]
+    private GameObject weaponIcon;
+    [SerializeField]
+    private GameObject throwableIcon;
+
+    private SwitchingWeapons switchingWeapons;
 
     void Awake()
     {
@@ -36,6 +43,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        switchingWeapons = FindObjectOfType<SwitchingWeapons>();
     }
 
     void Start()
@@ -48,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
 
         throwingObject = playerHealth.GetComponentInChildren<ThrowingObject>();
-        objective.text = "Objective: Find the key to unlock the door.";
+        objective.text = "Find the key to unlock the door";
     }
 
     void Update()
@@ -57,9 +66,24 @@ public class GameManager : MonoBehaviour
         {
             healthText.text = playerHealth.GetHealth().ToString();
             healthBarFill.fillAmount = (float)playerHealth.GetHealth() / playerHealth.GetMaxHealth();
+
+            if(playerHealth.GetHealth() <= 20)
+                healthBarFill.color = Color.red;
+
         }
 
-        bottles.text = "Bottles: " + (throwingObject != null ? (throwingObject.HasInfiniteProjectiles() ? "∞" : throwingObject.GetNumberOfProjectiles().ToString()) : "0");
+        if (switchingWeapons.weapon.activeSelf)
+        {
+            weaponIcon.SetActive(true);
+            throwableIcon.SetActive(false);
+        }
+        else
+        {
+            weaponIcon.SetActive(false);
+            throwableIcon.SetActive(true);
+        }
+
+            bottles.text =  (throwingObject != null ? (throwingObject.HasInfiniteProjectiles() ? "∞" : throwingObject.GetNumberOfProjectiles().ToString()) : "0");
 
         if (playerHealth != null && playerHealth.IsDead)
             LoadYouDiedScene();
@@ -68,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void SetKeyCollected(bool collected)
     {
         hasKey = collected;
-        objective.text = "Objective: Find Door.";
+        objective.text = "Find Door";
 
         Debug.Log($"Key collected: {hasKey}");
     }

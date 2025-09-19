@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SwitchingWeapons : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject weapon;
-    [SerializeField]
-    private GameObject throwableObject;
+    public GameObject weapon;
+    public GameObject throwableObject;
 
     // Start is called before the first frame update
     void Start()
