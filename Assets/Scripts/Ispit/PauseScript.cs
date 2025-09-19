@@ -15,10 +15,12 @@ public class PauseScript : MonoBehaviour
     [SerializeField]
     private GameObject mainGroup;
 
+    private AudioPauseManager audioPauseManager;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        audioPauseManager = FindObjectOfType<AudioPauseManager>();
     }
 
     // Update is called once per frame
@@ -34,9 +36,11 @@ public class PauseScript : MonoBehaviour
                 hudCanvas.SetActive(true);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                audioPauseManager.ResumeAll();
             }
             else
             {
+                audioPauseManager.PauseAllExcept();
                 isPaused = true;
                 Time.timeScale = 0;
                 pauseCanvas.SetActive(true);
@@ -55,5 +59,7 @@ public class PauseScript : MonoBehaviour
         hudCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        audioPauseManager.ResumeAll();
     }
 }
