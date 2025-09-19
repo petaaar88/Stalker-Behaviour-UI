@@ -1,4 +1,4 @@
-Shader "Custom/SheenSweep"
+﻿Shader "Custom/SheenSweep"
 {
     Properties
     {
@@ -12,6 +12,10 @@ Shader "Custom/SheenSweep"
         _SheenWidth ("Sheen Width", Range(0.01,1)) = 0.2
         _Speed ("Sheen Speed", Range(-5,5)) = 1.0
         _Direction ("Sweep Direction", Vector) = (1,0,0,0)
+
+        // 🔥 Novo za emission
+        _EmissionColor ("Emission Color", Color) = (0,0,0,0)
+        _EmissionStrength ("Emission Strength", Range(0,10)) = 0.0
     }
 
     SubShader
@@ -33,6 +37,9 @@ Shader "Custom/SheenSweep"
         float _Speed;
         float4 _Direction;
 
+        fixed4 _EmissionColor;
+        float _EmissionStrength;
+
         struct Input
         {
             float2 uv_MainTex;
@@ -48,24 +55,20 @@ Shader "Custom/SheenSweep"
             o.Smoothness = _Smoothness;
             o.Alpha = tex.a;
 
-            // Projekcija pozicije na pravac
             float3 dir = normalize(_Direction.xyz);
             float proj = dot(IN.worldPos, dir);
 
-            // Animacija pomeranjem preko vremena
             float bandPos = frac(proj + _Time.y * _Speed);
 
-            // Traka oko vrednosti 0.5
             float band = smoothstep(0.5 - _SheenWidth, 0.5, bandPos) * 
                          (1.0 - smoothstep(0.5, 0.5 + _SheenWidth, bandPos));
 
-            // Fresnel efekat da izgleda glossy
             float NdotV = saturate(dot(o.Normal, normalize(IN.viewDir)));
             float fresnel = pow(1.0 - NdotV, 3.0);
 
             float sheen = band * _SheenIntensity * (0.3 + 0.7 * fresnel);
 
-            o.Emission = _SheenColor.rgb * sheen;
+            o.Emission = _SheenColor.rgb * sheen + _EmissionColor.rgb * _EmissionStrength;
         }
         ENDCG
     }
