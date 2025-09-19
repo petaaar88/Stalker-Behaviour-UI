@@ -15,8 +15,8 @@ public class SceneChanger : MonoBehaviour
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene(sceneName);
         }
     }
