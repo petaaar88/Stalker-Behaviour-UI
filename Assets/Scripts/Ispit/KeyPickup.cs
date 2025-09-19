@@ -5,6 +5,8 @@ public class KeyPickup : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
+    [SerializeField]
+    private GameObject canvas;
 
     private bool isPlayerNearby = false;
     private ObjectAudioManager audioManager;
@@ -23,7 +25,10 @@ public class KeyPickup : MonoBehaviour
     void Update()
     {
         if (isPlayerNearby && Input.GetKeyDown(interactionKey))
+        {
+            canvas.SetActive(false);
             CollectKey();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -32,13 +37,17 @@ public class KeyPickup : MonoBehaviour
         {
             isPlayerNearby = true;
             Debug.Log("Press " + interactionKey + " to pick up the key.");
+            canvas.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag(playerTag))
+        {
+            canvas.SetActive(false);
             isPlayerNearby = false;
+        }
     }
 
     private void CollectKey()

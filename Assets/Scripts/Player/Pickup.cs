@@ -9,6 +9,9 @@ public class Pickup : MonoBehaviour
     private Renderer[] childRenderers;
     private Animator playerAnimator;
 
+    [SerializeField]
+    private GameObject canvas;
+
     void Start()
     {
         audioManager = GetComponent<ObjectAudioManager>();
@@ -22,6 +25,7 @@ public class Pickup : MonoBehaviour
     {
         if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
+            canvas.SetActive(false);
             if (throwingObject.AddProjectile())
             {
                 playerAnimator.SetTrigger("IsPickup");
@@ -37,14 +41,22 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Player"))
+        {
             isInRange = true;
+            canvas.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
+
             isInRange = false;
+            canvas.SetActive(false);
+        }
     }
 
     private IEnumerator DestroyAfterSound(string soundName)
