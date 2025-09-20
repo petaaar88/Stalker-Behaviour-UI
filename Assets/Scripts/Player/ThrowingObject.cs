@@ -126,13 +126,6 @@ public class ThrowingObject : MonoBehaviour
 
             isAiming = false;
 
-
-            foreach (Transform child in InstanceContainer)
-            {
-                if (child.GetComponent<ThrowableObject>().isCollided)
-                    Destroy(child.gameObject);
-            }
-
             TrajectoryPredictionDrawer.HideAll();
             targetRightOffset = 0.2f;
         }
