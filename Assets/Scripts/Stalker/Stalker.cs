@@ -256,9 +256,7 @@ public class Stalker : MonoBehaviour
 
     public void EndAttackInAnimation()
     {
-        if (!isRightHandedAttack)
             rightHandCollider.enabled = false;
-        else
             leftHandCollider.enabled = false;
     }
 

@@ -27,9 +27,7 @@ public class Attacking : State<Stalker>
         stalker.canAttack = false;
         MessageBroker.Instance.canChooseStalkerForAttacking = true;
 
-        if (!stalker.isRightHandedAttack)
             stalker.rightHandCollider.enabled = false;
-        else
             stalker.leftHandCollider.enabled = false;
 
         stalker.audioManager.StopSound("Attack");

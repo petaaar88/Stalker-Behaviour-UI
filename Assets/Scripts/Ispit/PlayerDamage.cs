@@ -1,4 +1,4 @@
-using Invector.vCharacterController;
+﻿using Invector.vCharacterController;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +11,9 @@ public class PlayerDamage : MonoBehaviour
     private Animator animator;
 
     private bool isDead = false;
+
+    private float lastHitTime = -999f;
+    public float hitCooldown = 0.5f; 
 
     void Start()
     {
@@ -35,8 +38,6 @@ public class PlayerDamage : MonoBehaviour
 
             animator.SetTrigger("IsDead");
             isDead = true;
-           
-
         }
     }
 
@@ -50,18 +51,15 @@ public class PlayerDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("StalkerAttackLeft")){
-            audioManager.PlaySound("Hurt");
-            playerHealth.TakeDamage(10);
+        if (Time.time - lastHitTime < hitCooldown)
+            return; 
 
-           
-        }
-
-        if (other.CompareTag("StalkerAttackRight"))
+        if (other.CompareTag("StalkerAttackLeft") || other.CompareTag("StalkerAttackRight"))
         {
             audioManager.PlaySound("Hurt");
-
             playerHealth.TakeDamage(10);
+
+            lastHitTime = Time.time; 
         }
     }
 }
