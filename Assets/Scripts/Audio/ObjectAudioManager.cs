@@ -19,7 +19,11 @@ public class ObjectAudioManager : MonoBehaviour
                 sound.audioSource.clip = sound.audioClip;
                 sound.audioSource.pitch = sound.pitch;
                 sound.audioSource.loop = sound.loop;
-                sound.audioSource.playOnAwake = false;
+
+                if (sound.audioSource != null && sound.playAtAwake)
+                    sound.audioSource.Play();
+                else
+                    sound.audioSource.playOnAwake = false;
 
                 // 3D Audio setup
                 Setup3DAudio(sound);

@@ -16,6 +16,7 @@ public class SoundClip
     [Range(0.1f, 3f)]
     public float pitch = 1f;
     public bool loop = false;
+    public bool playAtAwake = false;
 
     [Header("3D Audio Settings")]
     public bool is3D = true;

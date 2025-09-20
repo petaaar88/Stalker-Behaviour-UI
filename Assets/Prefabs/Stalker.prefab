@@ -747,6 +747,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6056593009634782930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &914767437132549842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8144792580355546493}
+  - component: {fileID: 7649153429101905100}
+  m_Layer: 6
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8144792580355546493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914767437132549842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.259, z: -0.821}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7025364656711625194}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &7649153429101905100
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914767437132549842}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.55
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &924217710671894471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3713,8 @@ GameObject:
   - component: {fileID: 2448393231130017810}
   - component: {fileID: 5152828165993651597}
   - component: {fileID: 5747187849045433383}
+  - component: {fileID: 7225925974152413123}
+  - component: {fileID: 9205609637837332481}
   m_Layer: 0
   m_Name: Stalker
   m_TagString: Untagged
@@ -3643,6 +3739,8 @@ Transform:
   - {fileID: 4878740155474424158}
   - {fileID: 2551551508284519723}
   - {fileID: 3058881808605472293}
+  - {fileID: 8144792580355546493}
+  - {fileID: 4342219619899786546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1033109875747993092
@@ -3819,6 +3917,283 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7225925974152413123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5775407431845438766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93994f87ee95ac4d9c9bf3850afdb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClips:
+  - soundName: RunningToCover
+    audioClip: {fileID: 8300000, guid: 916194b87a40c554bafef161d58a7394, type: 3}
+    soundType: 1
+    individualVolume: 0.79
+    pitch: 1.55
+    loop: 1
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.4
+    maxDistance: 5
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: ChasingPlayer
+    audioClip: {fileID: 8300000, guid: f8050fc0384238641ba5e4695a83a26f, type: 3}
+    soundType: 1
+    individualVolume: 0.841
+    pitch: 1.44
+    loop: 1
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.4
+    maxDistance: 3
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Clicking
+    audioClip: {fileID: 8300000, guid: b67fc4c2c08d8c84cb63548dad3f5b63, type: 3}
+    soundType: 1
+    individualVolume: 0.841
+    pitch: 1.85
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 6.3
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Roaring
+    audioClip: {fileID: 8300000, guid: 2fe46a9a53ad9324e8493e0ed950f513, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 1.44
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 3
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Laughing
+    audioClip: {fileID: 8300000, guid: ecf0b6d40703f4c43903127d3d17c6d0, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 1.44
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 3
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Attack
+    audioClip: {fileID: 8300000, guid: 749b80b94994d1545a4847187301934f, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.86
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Growl
+    audioClip: {fileID: 8300000, guid: f68196ab53671c440954dce75b737d0d, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Death
+    audioClip: {fileID: 8300000, guid: 4b004d38f012aed469bd739b8aacc631, type: 3}
+    soundType: 1
+    individualVolume: 0.683
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Growl2
+    audioClip: {fileID: 8300000, guid: 3d2840402d3e5cb40be0c02a074edc37, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Mumble
+    audioClip: {fileID: 8300000, guid: ea9f430e1c7cdd2448140c78f03486f3, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.6
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Threating1
+    audioClip: {fileID: 8300000, guid: 8b4fbd0a3a186ae4f94594ffd62d65d5, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.6
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Threating2
+    audioClip: {fileID: 8300000, guid: ffd7638445e024149a9952c5622388ad, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Threating3
+    audioClip: {fileID: 8300000, guid: 170fe49c747ec5d4abef38a2d0f5674d, type: 3}
+    soundType: 1
+    individualVolume: 1
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.7
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Hurt
+    audioClip: {fileID: 8300000, guid: c5cc30b5fbf295d45aeea243731b683d, type: 3}
+    soundType: 1
+    individualVolume: 0.695
+    pitch: 0.9
+    loop: 0
+    is3D: 1
+    spatialBlend: 1
+    minDistance: 0.4
+    maxDistance: 100
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+--- !u!82 &9205609637837332481
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5775407431845438766}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5797030772995907743
 GameObject:
   m_ObjectHideFlags: 0
@@ -5576,6 +5951,100 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5291709, y: 0.40831128, z: 0.44262677}
   m_Center: {x: -0.027972449, y: -0.0010421115, z: 0.044513937}
+--- !u!1 &9123072899282435234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4342219619899786546}
+  - component: {fileID: 6858983109289290340}
+  m_Layer: 6
+  m_Name: Point Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4342219619899786546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123072899282435234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.259, z: 1.0869992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7025364656711625194}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &6858983109289290340
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123072899282435234}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.55
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &9143596090277534125
 GameObject:
   m_ObjectHideFlags: 0
