@@ -85,8 +85,7 @@ public class GameManager : MonoBehaviour
 
             bottles.text =  (throwingObject != null ? (throwingObject.HasInfiniteProjectiles() ? "∞" : throwingObject.GetNumberOfProjectiles().ToString()) : "0");
 
-        if (playerHealth != null && playerHealth.IsDead)
-            LoadYouDiedScene();
+      
     }
 
     public void SetKeyCollected(bool collected)
