@@ -62,4 +62,18 @@ public class PauseScript : MonoBehaviour
 
         audioPauseManager.ResumeAll();
     }
+
+    public void PauseWithoutMenu()
+    {
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void UnpauseWithoutMenu()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 }

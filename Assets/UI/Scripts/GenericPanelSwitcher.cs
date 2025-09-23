@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +30,9 @@ public class GenericPanelSwitcher : MonoBehaviour
     [SerializeField]
     private UnityEvent onPanelSwitchComplete;
 
+    private bool isTransitioning = false;
+
+
     private int currentPanelIndex = 0;
 
     private void Start()
@@ -54,28 +57,41 @@ public class GenericPanelSwitcher : MonoBehaviour
         if (panelIndex < 0 || panelIndex >= panelSettings.Length || panelIndex == currentPanelIndex)
             return;
 
+        // Blokiraj nove tranzicije tokom animacije
+        if (isTransitioning) return;
+        isTransitioning = true;
+
         onPanelSwitchStart?.Invoke();
 
         PanelSettings currentPanelSettings = panelSettings[currentPanelIndex];
         PanelSettings targetPanelSettings = panelSettings[panelIndex];
-
         CanvasGroup currentPanel = currentPanelSettings.canvasGroup;
         CanvasGroup targetPanel = targetPanelSettings.canvasGroup;
-
         float fadeOutDuration = currentPanelSettings.fadeOutDuration;
         float fadeInDuration = targetPanelSettings.fadeInDuration;
 
+        // Blokiraj interakciju na trenutnom panelu
+        currentPanel.interactable = false;
+
         currentPanel.DOFade(0, fadeOutDuration)
-            .SetUpdate(true) // Dodato - radi i tokom pauze
+            .SetUpdate(true)
             .OnComplete(() =>
             {
                 currentPanel.gameObject.SetActive(false);
                 targetPanel.gameObject.SetActive(true);
                 targetPanel.alpha = 0;
+
+                // Blokiraj interakciju na target panelu
+                targetPanel.interactable = false;
+
                 targetPanel.DOFade(1, fadeInDuration)
-                    .SetUpdate(true) // Dodato - radi i tokom pauze
+                    .SetUpdate(true)
                     .OnComplete(() =>
                     {
+                        // Omogući interakciju i završi tranziciju
+                        targetPanel.interactable = true;
+                        isTransitioning = false;
+
                         currentPanelIndex = panelIndex;
                         onPanelSwitchComplete?.Invoke();
                     });
