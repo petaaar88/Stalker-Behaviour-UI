@@ -11,6 +11,10 @@ public class SceneChanger : MonoBehaviour
     {
         if (sceneName == mainSceneName)
         {
+            StopAllCoroutines();
+
+            Time.timeScale = 1f;
+
             StartCoroutine(ChangeSceneCoroutine(sceneName));
         }
         else
@@ -25,7 +29,6 @@ public class SceneChanger : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
         yield return new WaitForSeconds(delay);
 
         SceneManager.LoadScene(sceneName);

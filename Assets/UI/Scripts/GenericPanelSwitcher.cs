@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -66,16 +66,27 @@ public class GenericPanelSwitcher : MonoBehaviour
         float fadeInDuration = targetPanelSettings.fadeInDuration;
 
         currentPanel.DOFade(0, fadeOutDuration)
-            .SetUpdate(true) // Dodato - radi i tokom pauze
+            .SetUpdate(true)
             .OnComplete(() =>
             {
                 currentPanel.gameObject.SetActive(false);
                 targetPanel.gameObject.SetActive(true);
                 targetPanel.alpha = 0;
+
+                // Onemogući interakciju tokom fade in-a
+                CanvasGroup targetCanvasGroup = targetPanel.GetComponent<CanvasGroup>();
+                if (targetCanvasGroup == null)
+                    targetCanvasGroup = targetPanel.gameObject.AddComponent<CanvasGroup>();
+
+                targetCanvasGroup.interactable = false;
+
                 targetPanel.DOFade(1, fadeInDuration)
-                    .SetUpdate(true) // Dodato - radi i tokom pauze
+                    .SetUpdate(true)
                     .OnComplete(() =>
                     {
+                        // Omogući interakciju kada se fade završi
+                        targetCanvasGroup.interactable = true;
+
                         currentPanelIndex = panelIndex;
                         onPanelSwitchComplete?.Invoke();
                     });
