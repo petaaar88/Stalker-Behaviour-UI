@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: -701364682413363906}
   - {fileID: 4172880318308627501}
   - {fileID: 1301048207728553032}
+  - {fileID: 6870591998914451310}
 --- !u!114 &1301048207728553032
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -122,14 +123,14 @@ MonoBehaviour:
     overrideState: 1
     value: 0
   color:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
+    overrideState: 1
+    value: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.368
+    value: 0.362
   smoothness:
     overrideState: 0
     value: 0.2
@@ -253,10 +254,10 @@ MonoBehaviour:
     value: {x: 0.9501314, y: 0.95785254, z: 1, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.8165477, y: 0.7990488, z: 1, w: 0}
+    value: {x: 0.8165477, y: 0.7990488, z: 1, w: -0.03550296}
   gain:
     overrideState: 0
-    value: {x: 0.98572487, y: 0.9647373, z: 1, w: 0}
+    value: {x: 0.8525865, y: 0.9612184, z: 1, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1509,3 +1510,31 @@ MonoBehaviour:
   quality:
     overrideState: 0
     value: 2
+--- !u!114 &6870591998914451310
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
+  m_Name: Grain
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  colored:
+    overrideState: 0
+    value: 1
+  intensity:
+    overrideState: 0
+    value: 0
+  size:
+    overrideState: 0
+    value: 1
+  lumContrib:
+    overrideState: 0
+    value: 0.8

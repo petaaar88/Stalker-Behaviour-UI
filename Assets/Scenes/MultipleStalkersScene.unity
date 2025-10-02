@@ -71051,6 +71051,17 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000861734}
   m_Enabled: 1
+--- !u!114 &1000861749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8761459156516093932, guid: b60c01d918f02c44785aff015a6c3457, type: 3}
+  m_PrefabInstance: {fileID: 1625115212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000861734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1bfe72fbc87d04e885296b53e91c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1001388690
 GameObject:
   m_ObjectHideFlags: 0
@@ -147418,6 +147429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444daad4f55e32f49a80663a6205def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomInDistance: 0.9
+  zoomSpeed: 1.57
+  camera: {fileID: 1000861749}
+  postProcessVolume: {fileID: 870765545}
+  zoomGamma: 0.8
 --- !u!23 &101671714518260570
 MeshRenderer:
   m_ObjectHideFlags: 0

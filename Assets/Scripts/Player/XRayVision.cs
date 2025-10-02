@@ -1,24 +1,142 @@
-using cakeslice;
+﻿using cakeslice;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class XRayVision : MonoBehaviour
 {
+    [Header("Outline")]
+    private bool isDisabled = false;
 
-    private bool isDisabled = true;
-    
+    [Header("Zoom")]
+    [SerializeField] private float zoomInDistance = 2f;
+    [SerializeField] private float zoomSpeed = 8f;
+    private float originalDistance;
+    private bool isZoomingIn = false;
+
+    [SerializeField] private vThirdPersonCamera camera;
+
+    [Header("Post Processing")]
+    [SerializeField] private PostProcessVolume postProcessVolume;
+    private ColorGrading colorGrading;
+    private Bloom bloom;
+    private Grain grain; // novi efekat
+
+    private float originalGamma;
+    [SerializeField] private float zoomGamma = 0.8f;
+
+    private float originalBloom;
+    [SerializeField] private float zoomBloom = 5f;
+
+    private float originalGrain;
+    [SerializeField] private float zoomGrain = 0.5f; // intenzitet grain-a kad zoomira
+
+    [Header("Outline Settings")]
+    [SerializeField] private float outlineRadius = 10f;
+    private Outline[] outlines;
+
+    private ObjectAudioManager audioManager;
+    private GlobalAudioManager globalAudioManager;
+    private float originalMasterVolume;
+
+    private void Start()
+    {
+        outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
+
+        if (camera != null)
+            originalDistance = camera.defaultDistance;
+
+        if (postProcessVolume != null)
+        {
+            // Color grading
+            if (postProcessVolume.profile.TryGetSettings(out colorGrading))
+                originalGamma = colorGrading.gamma.value.w;
+
+            // Bloom
+            if (postProcessVolume.profile.TryGetSettings(out bloom))
+                originalBloom = bloom.intensity.value;
+
+            // Grain
+            if (postProcessVolume.profile.TryGetSettings(out grain))
+                originalGrain = grain.intensity.value;
+        }
+
+        audioManager = GetComponent<ObjectAudioManager>();
+
+        globalAudioManager = FindObjectOfType<GlobalAudioManager>();
+        originalMasterVolume = globalAudioManager.masterVolume;
+    }
+
     void Update()
     {
+        // Toggle zoom i outline
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            isDisabled = false;
+            isZoomingIn = true;
+            audioManager.PlaySound("Swoosh");
+            globalAudioManager.masterVolume = 0.2f;
+        }
 
-        if (Input.GetKeyDown(KeyCode.H))
-            isDisabled = !isDisabled;
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            isDisabled = true;
+            isZoomingIn = false;
+            audioManager.PlaySound("Swoosh");
+            globalAudioManager.masterVolume = originalMasterVolume;
+        }
 
-        Outline[] outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
+        // Outline sa radijusom
         foreach (var item in outlines)
         {
-            item.eraseRenderer = isDisabled;
+            float distance = Vector3.Distance(transform.position, item.transform.position);
+            if (distance <= outlineRadius)
+                item.eraseRenderer = isDisabled == false ? false : true;
+            else
+                item.eraseRenderer = true;
         }
+
+        // Kamera zoom
+        if (camera != null)
+        {
+            float target = isZoomingIn ? zoomInDistance : originalDistance;
+            camera.defaultDistance = Mathf.MoveTowards(camera.defaultDistance, target, zoomSpeed * Time.deltaTime);
+        }
+
+        // Gamma kontrola
+        if (colorGrading != null)
+        {
+            float targetGamma = isZoomingIn ? zoomGamma : originalGamma;
+            Vector4 gamma = colorGrading.gamma.value;
+            gamma.w = Mathf.MoveTowards(gamma.w, targetGamma, Time.deltaTime * 1f);
+            colorGrading.gamma.value = gamma;
+        }
+
+        // Bloom kontrola
+        if (bloom != null)
+        {
+            float targetBloom = isZoomingIn ? zoomBloom : originalBloom;
+            bloom.intensity.value = Mathf.MoveTowards(bloom.intensity.value, targetBloom, Time.deltaTime * 2f);
+        }
+
+        // Grain kontrola
+        if (grain != null)
+        {
+            float targetGrain = isZoomingIn ? zoomGrain : originalGrain;
+            grain.intensity.value = Mathf.MoveTowards(grain.intensity.value, targetGrain, Time.deltaTime * 2f);
+        }
+    }
+    private IEnumerator ApplyXRayVolumeAfterSwoosh()
+    {
+            yield return new WaitForSeconds(1.0f);
+            globalAudioManager.masterVolume = 0.2f;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, outlineRadius);
     }
 }
