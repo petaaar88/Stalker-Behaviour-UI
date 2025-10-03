@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class Brightness : MonoBehaviour
 {
-
     [SerializeField]
     private Slider brightnessSlider;
 
     public PostProcessVolume postProcessVolume;
-
     public PostProcessLayer layer;
 
     private AutoExposure autoExposure;
+
+    public static float savedBrightness = 0.5f;
 
     void Start()
     {
@@ -26,25 +26,22 @@ public class Brightness : MonoBehaviour
             {
                 autoExposure.keyValue.overrideState = true;
 
-                brightnessSlider.value = autoExposure.keyValue.value;
+                autoExposure.keyValue.value = savedBrightness;
+                brightnessSlider.value = savedBrightness;
             }
         }
-    }
-
-    void Update()
-    {
-        // Nema promena
     }
 
     public void AdjuctstBrightness(float value)
     {
         if (autoExposure != null)
         {
-
             if (value != 0)
                 autoExposure.keyValue.value = value;
             else
                 autoExposure.keyValue.value = 0.5f;
+
+            savedBrightness = autoExposure.keyValue.value;
         }
     }
 }
