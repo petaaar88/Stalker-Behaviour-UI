@@ -10,7 +10,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     private GameObject gameUI;
 
-    private static bool isEnabled = false;
+    private static bool isEnabled = true;
     [SerializeField] private TextMeshProUGUI enableTutorialButtonText;
 
 

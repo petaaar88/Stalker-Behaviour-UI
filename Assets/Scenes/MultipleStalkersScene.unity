@@ -7453,6 +7453,123 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92512343}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &94026167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94026168}
+  - component: {fileID: 94026170}
+  - component: {fileID: 94026169}
+  m_Layer: 0
+  m_Name: Voices
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94026168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94026167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1254256411}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94026169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94026167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c09fa4591f535d47b7d22ad05b80892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxNames:
+  - breath
+  - scream
+  - whispering
+  - whispering2
+  minInterval: 10
+  maxInterval: 14
+--- !u!114 &94026170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94026167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93994f87ee95ac4d9c9bf3850afdb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClips:
+  - soundName: breath
+    audioClip: {fileID: 8300000, guid: 47abcac0d76836a4cba51f56cecc903d, type: 3}
+    soundType: 1
+    individualVolume: 0.436
+    pitch: 1
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: scream
+    audioClip: {fileID: 8300000, guid: aafe1c9dd14e952419623bf521c94f31, type: 3}
+    soundType: 1
+    individualVolume: 0.359
+    pitch: 1
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: whispering
+    audioClip: {fileID: 8300000, guid: fab0d65c7f2e663469b988c37723e83b, type: 3}
+    soundType: 1
+    individualVolume: 0.402
+    pitch: 1
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: whispering2
+    audioClip: {fileID: 8300000, guid: 77da12b1fe0e5f44d85e69407bc646ce, type: 3}
+    soundType: 1
+    individualVolume: 0.282
+    pitch: 1
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
 --- !u!1 &94066258
 GameObject:
   m_ObjectHideFlags: 0
@@ -10979,7 +11096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -10987,7 +11104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -10995,11 +11112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -13353,7 +13470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -13361,7 +13478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -13369,11 +13486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -25116,6 +25233,109 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349997301}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &350932079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350932080}
+  - component: {fileID: 350932082}
+  - component: {fileID: 350932081}
+  m_Layer: 0
+  m_Name: Footsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350932080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350932079}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1254256411}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350932081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350932079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c09fa4591f535d47b7d22ad05b80892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxNames:
+  - Floor1
+  - Floor2
+  - Floor3
+  minInterval: 20
+  maxInterval: 30
+--- !u!114 &350932082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350932079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93994f87ee95ac4d9c9bf3850afdb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClips:
+  - soundName: Floor1
+    audioClip: {fileID: 8300000, guid: fe6d302b3f625084fb0616f352125e34, type: 3}
+    soundType: 1
+    individualVolume: 0.265
+    pitch: 1
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Floor2
+    audioClip: {fileID: 8300000, guid: 71e1a3e99428d8b4fa4c75b3d7e9448f, type: 3}
+    soundType: 1
+    individualVolume: 0.265
+    pitch: 1
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
+  - soundName: Floor3
+    audioClip: {fileID: 8300000, guid: 9b4e9da3a183ed14aa0741a9d92d7b74, type: 3}
+    soundType: 1
+    individualVolume: 0.282
+    pitch: 3
+    loop: 0
+    playAtAwake: 0
+    is3D: 0
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    audioSource: {fileID: 0}
 --- !u!1 &352083954
 GameObject:
   m_ObjectHideFlags: 0
@@ -33359,7 +33579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -33367,7 +33587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -33375,11 +33595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -58399,7 +58619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -58407,7 +58627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -58415,11 +58635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -61852,7 +62072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -61860,7 +62080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -61868,11 +62088,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -64681,7 +64901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -64689,7 +64909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -64697,11 +64917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -86178,7 +86398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -86186,7 +86406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -86194,11 +86414,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -86387,6 +86607,40 @@ MonoBehaviour:
   maxAvoidanceAngle: 55.3
   useFlowField: 1
   showDebugGizmos: 0
+--- !u!1 &1254256410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254256411}
+  m_Layer: 0
+  m_Name: Background SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254256411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254256410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.026367, y: 0.8667195, z: -2.345278}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2108659155}
+  - {fileID: 94026168}
+  - {fileID: 350932080}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1254622792
 GameObject:
   m_ObjectHideFlags: 0
@@ -135814,7 +136068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -135822,7 +136076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -135830,11 +136084,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -138370,7 +138624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[0].minDistance
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[2].minDistance
@@ -138378,7 +138632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[3].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[4].minDistance
@@ -138386,11 +138640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[6].minDistance
-      value: 0.55
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[8].minDistance
-      value: 0.55
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7225925974152413123, guid: e8c8aa4ddadd3f047b2b77e82dc6e91d, type: 3}
       propertyPath: soundClips.Array.data[10].minDistance
@@ -145517,12 +145771,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108659153}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 811.1566, y: 777.2767, z: -1038.27}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 829.183, y: 776.41, z: -1035.9247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1254256411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112141948
 GameObject:
@@ -155023,6 +155277,6 @@ SceneRoots:
   - {fileID: 870765546}
   - {fileID: 1621724413}
   - {fileID: 1282154051}
-  - {fileID: 2108659155}
   - {fileID: 210900822}
   - {fileID: 935321315}
+  - {fileID: 1254256411}

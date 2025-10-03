@@ -66804,7 +66804,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1137415138}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 288
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -125633,6 +125633,10 @@ PrefabInstance:
       propertyPath: layer
       value: 
       objectReference: {fileID: 1137415139}
+    - target: {fileID: 2068182473586020916, guid: 5de3a3a6738a7bd4086508d950e677ef, type: 3}
+      propertyPath: postProcessVolume
+      value: 
+      objectReference: {fileID: 1829839921}
     - target: {fileID: 2198886210906129732, guid: 5de3a3a6738a7bd4086508d950e677ef, type: 3}
       propertyPath: normalColor.b
       value: 0.5568628
@@ -125897,6 +125901,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1616547109}
+    - target: {fileID: 6110894338861113881, guid: 5de3a3a6738a7bd4086508d950e677ef, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AdjuctstBrightness
+      objectReference: {fileID: 0}
     - target: {fileID: 6653873925761092336, guid: 5de3a3a6738a7bd4086508d950e677ef, type: 3}
       propertyPath: normalColor.b
       value: 0.5568628
