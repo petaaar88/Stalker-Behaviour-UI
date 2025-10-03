@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -29,6 +29,7 @@ public class Brightness : MonoBehaviour
 
     public void AdjuctstBrightness(float value)
     {
+        Debug.Log(autoExposure.keyValue.value);
         if (value != 0)
             autoExposure.keyValue.value = value;
         else

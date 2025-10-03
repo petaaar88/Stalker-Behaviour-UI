@@ -16,7 +16,7 @@ public class XRayVision : MonoBehaviour
     private float originalDistance;
     private bool isZoomingIn = false;
 
-    [SerializeField] private vThirdPersonCamera camera;
+    [SerializeField] private vThirdPersonCamera thiredPersonCamera;
 
     [Header("Post Processing")]
     [SerializeField] private PostProcessVolume postProcessVolume;
@@ -31,7 +31,7 @@ public class XRayVision : MonoBehaviour
     [SerializeField] private float zoomBloom = 5f;
 
     private float originalGrain;
-    [SerializeField] private float zoomGrain = 0.5f; // intenzitet grain-a kad zoomira
+    [SerializeField] private float zoomGrain = 0.5f; 
 
     [Header("Outline Settings")]
     [SerializeField] private float outlineRadius = 10f;
@@ -45,20 +45,17 @@ public class XRayVision : MonoBehaviour
     {
         outlines = FindObjectsByType<Outline>(FindObjectsSortMode.None);
 
-        if (camera != null)
-            originalDistance = camera.defaultDistance;
+        if (thiredPersonCamera != null)
+            originalDistance = thiredPersonCamera.defaultDistance;
 
         if (postProcessVolume != null)
         {
-            // Color grading
             if (postProcessVolume.profile.TryGetSettings(out colorGrading))
                 originalGamma = colorGrading.gamma.value.w;
 
-            // Bloom
             if (postProcessVolume.profile.TryGetSettings(out bloom))
                 originalBloom = bloom.intensity.value;
 
-            // Grain
             if (postProcessVolume.profile.TryGetSettings(out grain))
                 originalGrain = grain.intensity.value;
         }
@@ -71,7 +68,6 @@ public class XRayVision : MonoBehaviour
 
     void Update()
     {
-        // Toggle zoom i outline
         if (Input.GetKeyDown(KeyCode.V))
         {
             isDisabled = false;
@@ -88,7 +84,6 @@ public class XRayVision : MonoBehaviour
             globalAudioManager.masterVolume = originalMasterVolume;
         }
 
-        // Outline sa radijusom
         foreach (var item in outlines)
         {
             float distance = Vector3.Distance(transform.position, item.transform.position);
@@ -98,14 +93,12 @@ public class XRayVision : MonoBehaviour
                 item.eraseRenderer = true;
         }
 
-        // Kamera zoom
-        if (camera != null)
+        if (thiredPersonCamera != null)
         {
             float target = isZoomingIn ? zoomInDistance : originalDistance;
-            camera.defaultDistance = Mathf.MoveTowards(camera.defaultDistance, target, zoomSpeed * Time.deltaTime);
+            thiredPersonCamera.defaultDistance = Mathf.MoveTowards(thiredPersonCamera.defaultDistance, target, zoomSpeed * Time.deltaTime);
         }
 
-        // Gamma kontrola
         if (colorGrading != null)
         {
             float targetGamma = isZoomingIn ? zoomGamma : originalGamma;
@@ -114,14 +107,12 @@ public class XRayVision : MonoBehaviour
             colorGrading.gamma.value = gamma;
         }
 
-        // Bloom kontrola
         if (bloom != null)
         {
             float targetBloom = isZoomingIn ? zoomBloom : originalBloom;
             bloom.intensity.value = Mathf.MoveTowards(bloom.intensity.value, targetBloom, Time.deltaTime * 2f);
         }
 
-        // Grain kontrola
         if (grain != null)
         {
             float targetGrain = isZoomingIn ? zoomGrain : originalGrain;
@@ -130,8 +121,8 @@ public class XRayVision : MonoBehaviour
     }
     private IEnumerator ApplyXRayVolumeAfterSwoosh()
     {
-            yield return new WaitForSeconds(1.0f);
-            globalAudioManager.masterVolume = 0.2f;
+        yield return new WaitForSeconds(1.0f);
+        globalAudioManager.masterVolume = 0.2f;
     }
 
     private void OnDrawGizmos()
