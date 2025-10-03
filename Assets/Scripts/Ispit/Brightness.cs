@@ -10,29 +10,41 @@ public class Brightness : MonoBehaviour
     [SerializeField]
     private Slider brightnessSlider;
 
-    public PostProcessProfile brightness;
+    public PostProcessVolume postProcessVolume;
+
     public PostProcessLayer layer;
 
     private AutoExposure autoExposure;
-    // Start is called before the first frame update
+
     void Start()
     {
-        brightness.TryGetSettings(out autoExposure);
-        brightnessSlider.value = autoExposure.keyValue.value;
+        if (postProcessVolume != null)
+        {
+            postProcessVolume.profile.TryGetSettings(out autoExposure);
+
+            if (autoExposure != null)
+            {
+                autoExposure.keyValue.overrideState = true;
+
+                brightnessSlider.value = autoExposure.keyValue.value;
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        // Nema promena
     }
 
     public void AdjuctstBrightness(float value)
     {
-        Debug.Log(autoExposure.keyValue.value);
-        if (value != 0)
-            autoExposure.keyValue.value = value;
-        else
-            autoExposure.keyValue.value = 0.5f;
+        if (autoExposure != null)
+        {
+
+            if (value != 0)
+                autoExposure.keyValue.value = value;
+            else
+                autoExposure.keyValue.value = 0.5f;
+        }
     }
 }

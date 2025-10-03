@@ -92845,6 +92845,10 @@ PrefabInstance:
       propertyPath: brightnessProfile
       value: 
       objectReference: {fileID: 11400000, guid: bc6af3527760e6c4db0463e9bca180d0, type: 2}
+    - target: {fileID: 2068182473586020916, guid: 5de3a3a6738a7bd4086508d950e677ef, type: 3}
+      propertyPath: postProcessVolume
+      value: 
+      objectReference: {fileID: 870765545}
     - target: {fileID: 2198886210906129732, guid: 5de3a3a6738a7bd4086508d950e677ef, type: 3}
       propertyPath: normalColor.b
       value: 0.5568628
@@ -148001,10 +148005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomInDistance: 1.12
-  zoomSpeed: 1.37
+  zoomSpeed: 1.4
   thiredPersonCamera: {fileID: 1000861749}
   postProcessVolume: {fileID: 870765545}
-  zoomGamma: -0.1
+  zoomGamma: -0.16
   zoomBloom: 6.1
   zoomGrain: 0.5
   outlineRadius: 20
