@@ -41,6 +41,8 @@ git lfs pull
 
 To verify that LFS files were downloaded correctly:
 ```bash
+
+Unity Version - 2022.3.47f1
 git lfs ls-files
 ```
 
